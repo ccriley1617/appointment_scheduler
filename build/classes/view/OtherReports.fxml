@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OtherReportsController">
+   <children>
+      <HBox prefHeight="810.0" prefWidth="1039.0">
+         <children>
+            <VBox prefHeight="810.0" prefWidth="1067.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="1039.0" spacing="30.0">
+                     <children>
+                        <Label text="Display: ">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="displayNumOfAppByMonRBtn" mnemonicParsing="false" selected="true" text="Number of Appointments by Month">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="displayTG" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="displayScheduleConsultantRBtn" mnemonicParsing="false" text="Schedule for Each Consultant" toggleGroup="$displayTG" />
+                        <RadioButton fx:id="displayMailingListRbtn" layoutX="476.0" layoutY="23.0" mnemonicParsing="false" text="Mailing List" toggleGroup="$displayTG" />
+                        <Button mnemonicParsing="false" onAction="#onActionGenerateReport" text="Generate Report" />
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="reportTxt" prefHeight="637.0" prefWidth="1039.0" />
+                  <Pane prefHeight="74.0" prefWidth="801.0">
+                     <children>
+                        <Button layoutX="457.0" layoutY="25.0" mnemonicParsing="false" onAction="#onActionDisplayReportManager" prefWidth="125.0" text="Back" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

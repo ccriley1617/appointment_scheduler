@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateAppointmentController">
+   <children>
+      <VBox layoutY="-7.0" prefHeight="460.0" prefWidth="320.0">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="48.0" layoutY="-3.0" text="Update Appointment">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <GridPane prefHeight="303.0" prefWidth="300.0" vgap="30.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="106.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="214.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Customer Name:" />
+                  <Label text="Title:" GridPane.rowIndex="1" />
+                  <Label text="Description:" GridPane.rowIndex="2" />
+                  <Label text="Location:" GridPane.rowIndex="3" />
+                  <Label text="Contact:" GridPane.rowIndex="4" />
+                  <Label text="Type:" GridPane.rowIndex="5" />
+                  <Label text="URL:" GridPane.rowIndex="6" />
+                  <Label text="Start:" GridPane.rowIndex="7" />
+                  <TextField fx:id="customerIdTxt" GridPane.columnIndex="1" />
+                  <TextField fx:id="titleTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="descriptionTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="locationTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="contactTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="typeTxt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="url" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="End: " GridPane.rowIndex="8" />
+                  <TextField fx:id="endTxt" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="startTxt" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="320.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onActionSaveAppointment" text="Save" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionDisplayAppointmentManager" text="Back" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="330.0" layoutY="13.0" prefHeight="420.0" prefWidth="806.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="480.0" spacing="30.0">
+               <children>
+                  <Label text="Search By: ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="searchCustomerNameRBtn" mnemonicParsing="false" selected="true" text="Customer Name">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="searchTG" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="searchTitleRBtn" mnemonicParsing="false" text="Title" toggleGroup="$searchTG" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="480.0" spacing="40.0">
+               <children>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onActionSearchCustomers" text="Search" />
+                  <TextField fx:id="searchTxt" prefHeight="25.0" prefWidth="178.0" promptText="Appointments By Title" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="43.0" prefWidth="480.0" spacing="30.0">
+               <children>
+                  <Label text="Search By Title     Can do partial searches     Ex. T, Ti, Tit, Titl, Title ">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="updateTableView" prefHeight="266.0" prefWidth="791.0">
+               <columns>
+                  <TableColumn fx:id="customerNameCol" prefWidth="109.0" text="Customer Name" />
+                  <TableColumn fx:id="titleCol" prefWidth="108.0" text="Title" />
+                  <TableColumn fx:id="descriptionCol" prefWidth="112.0" text="Description" />
+                  <TableColumn fx:id="locationCol" prefWidth="101.0" text="Location" />
+                  <TableColumn fx:id="contactCol" prefWidth="91.0" text="Contact" />
+                  <TableColumn fx:id="typeCol" prefWidth="67.0" text="Type" />
+                  <TableColumn fx:id="urlCol" prefWidth="89.0" text="URL" />
+                  <TableColumn fx:id="startCol" prefWidth="68.0" text="Start" />
+                  <TableColumn fx:id="endCol1" prefWidth="68.0" text="End" />
+               </columns>
+            </TableView>
+            <Pane prefHeight="47.0" prefWidth="480.0">
+               <children>
+                  <Button layoutX="340.0" layoutY="11.0" mnemonicParsing="false" onAction="#onActionSelectCustomerFromTable" text="Select Customer" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
